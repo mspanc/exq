@@ -145,7 +145,7 @@ defmodule Exq.Manager.Server do
                    workers_sup: opts[:workers_sup],
                    enqueuer: opts[:enqueuer],
                    middleware: opts[:middleware],
-                   host:  "localhost",
+                   host:  System.get_env("EXQ_HOSTNAME"),
                    namespace: opts[:namespace],
                    queues: opts[:queues],
                    pid: self(),
