@@ -137,8 +137,6 @@ defmodule Exq.Manager.Server do
 ##===========================================================
 
   def init(opts) do
-    {:ok, localhost} = :inet.gethostname()
-
     work_table = setup_queues(opts)
 
     state = %State{work_table: work_table,
@@ -147,7 +145,7 @@ defmodule Exq.Manager.Server do
                    workers_sup: opts[:workers_sup],
                    enqueuer: opts[:enqueuer],
                    middleware: opts[:middleware],
-                   host:  to_string(localhost),
+                   host:  "localhost",
                    namespace: opts[:namespace],
                    queues: opts[:queues],
                    pid: self(),
